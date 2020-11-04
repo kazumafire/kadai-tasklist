@@ -45,11 +45,11 @@
             }
 
             .title {
-                font-size: 84px;
+                font-size: 120px;
             }
 
             .links > a {
-                color: #636b6f;
+                color: red;
                 padding: 0 25px;
                 font-size: 13px;
                 font-weight: 600;
@@ -85,7 +85,7 @@
                 </div>
 
                 <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
+                    <a href="https://laravel.com/docs">kazuma</a>
                     <a href="https://laracasts.com">Laracasts</a>
                     <a href="https://laravel-news.com">News</a>
                     <a href="https://blog.laravel.com">Blog</a>
