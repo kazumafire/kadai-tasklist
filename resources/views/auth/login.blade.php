@@ -19,9 +19,9 @@
                     {!! Form::password('password', ['class' => 'form-control']) !!}
                 </div>
 
+                {!! Form::submit('ログイン', ['class' => 'btn btn-primary btn-block']) !!}
             {!! Form::close() !!}
                
-                {!! link_to_route('tasks.index', 'ログイン', [], ['class' => 'btn btn-primary btn-block']) !!}
             {{-- ユーザ登録ページへのリンク --}}
             <p class="mt-2">New user? {!! link_to_route('signup.get', 'アカウント作成') !!}</p>
         </div>
