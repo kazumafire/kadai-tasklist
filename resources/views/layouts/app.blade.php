@@ -24,7 +24,7 @@
                         
                         <li class="nav-item">{!! link_to_route('tasks.create', '新規タスクの投稿', [], ['class' => 'nav-link']) !!}</li>    
                             {{-- ログアウトへのリンク --}}
-                        <li class="nav-item">{!! link_to_route('logout.get', 'Logout') !!}</li> 
+                        <li class="nav-item">{!! link_to_route('logout.get', 'Logout', [], ['class' => 'nav-link']) !!}</li> 
                     </ul>
                         @else
                         {{-- ユーザ登録ページへのリンク --}}
