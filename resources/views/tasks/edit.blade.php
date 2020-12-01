@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-
+ 
     <h1>id: {{ $task->id }} 編集ページ</h1>
 
     <div class="row">
@@ -17,10 +17,12 @@
                     {!! Form::label('content', 'タスク:') !!}
                     {!! Form::text('content', null, ['class' => 'form-control']) !!}
                 </div>
+                
 
                 {!! Form::submit('更新', ['class' => 'btn btn-outline-primary']) !!}
 
             {!! Form::close() !!}
+           
         </div>
     </div>
 

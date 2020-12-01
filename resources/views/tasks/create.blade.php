@@ -9,6 +9,7 @@
             @endforeach
         </ul>
     @endif
+    
     <h1>作成ページ</h1>
     
     <div class="row">
@@ -24,10 +25,11 @@
                     {!! Form::label('content', 'タスク:') !!}
                     {!! Form::text('content', null, ['class' => 'form-control']) !!}
                 </div>
-                
+                 
                 {!! Form::submit('投稿', ['class' => 'btn btn-outline-success']) !!}
                 
             {!! Form::close() !!}
+            
         </div>
         
     </div>

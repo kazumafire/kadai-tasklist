@@ -39,12 +39,17 @@ class TasksController extends Controller
      */
     public function create()
     {
-        //
+       
+        if (\Auth::check()) {
+        
         $task = new Task;
         
         return view('tasks.create', [
             'task' =>$task,
             ]);
+        }else
+        return redirect('/');
+           
     }
 
     /**
@@ -60,16 +65,13 @@ class TasksController extends Controller
             'content' => 'required|max:255',
             'status' => 'required|max:10',
         ]);
-        // $task = new Task;
-        // $task->status = $request->status;
-        // $task->content = $request->content;
-        // $task->save();
+       
         
         $request->user()->tasks()->create([
             'content' => $request->content,
             'status' => $request->status,
         ]);
-        
+       
         return redirect('/');
     }
 
@@ -81,13 +83,15 @@ class TasksController extends Controller
      */
     public function show($id)
     {
-        //
         $task = Task::findOrFail($id);
-
+       if (\Auth::id() === $task->user_id) {
         // メッセージ詳細ビューでそれを表示
         return view('tasks.show', [
             'task' => $task,
         ]);
+        }
+        
+        return redirect('/');
     }
 
     /**
@@ -99,10 +103,12 @@ class TasksController extends Controller
     public function edit($id)
     {
         $task = Task::findOrFail($id);
-        
+       if (\Auth::id() === $task->user_id) {
         return view('tasks.edit', [
             'task' => $task,
         ]);
+       }else
+        return redirect('/');
     }
 
     /**
@@ -118,15 +124,13 @@ class TasksController extends Controller
         $request->validate([
             'status' => 'required|max:10',    
         ]);
-        
          $task = Task::findOrFail($id);
-        
-        
-        
+        if (\Auth::id() === $task->user_id){
         $task->status = $request->status;
         $task->content = $request->content;
         $task->user_id = \Auth::id();
         $task->save();
+        }
 
         return redirect('/');
     }
